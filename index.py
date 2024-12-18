@@ -1,4 +1,4 @@
-import cleanTerminal, createContact, findContacts
+import cleanTerminal, createContact, findContacts, editContact
 
 contacts = []
 
@@ -19,6 +19,8 @@ while True:
     createContact.execute(contacts)
   elif option == 2:
     findContacts.execute(contacts)
+  elif option == 3:
+    editContact.execute(contacts)
   elif option == 6:
     print("\n  APLICAÇÃO ENCERRADA")
     break
