@@ -14,3 +14,7 @@ while True:
   print("  6. SAIR")
 
   option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
+
+  if option == 6:
+    print("\n  APLICAÇÃO ENCERRADA")
+    break
