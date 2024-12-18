@@ -1,5 +1,7 @@
 import cleanTerminal
 
+contacts = []
+
 cleanTerminal.execute()
 
 while True:
