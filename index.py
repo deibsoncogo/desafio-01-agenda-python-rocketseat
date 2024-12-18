@@ -1,3 +1,7 @@
+import cleanTerminal
+
+cleanTerminal.execute()
+
 while True:
   print(" BEM VINDO A AGENDA DE CONTATOS")
   print("  1. ADICIONAR UM CONTATO")
