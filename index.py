@@ -1,4 +1,4 @@
-import cleanTerminal
+import cleanTerminal, createContact
 
 contacts = []
 
@@ -15,6 +15,8 @@ while True:
 
   option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
 
-  if option == 6:
+  if option == 1:
+    createContact.execute(contacts)
+  elif option == 6:
     print("\n  APLICAÇÃO ENCERRADA")
     break
