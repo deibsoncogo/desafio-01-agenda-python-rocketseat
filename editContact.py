@@ -6,27 +6,33 @@ def execute(contacts):
   for index, contact in enumerate(contacts, start=1):
     print(f"  {index}. NOME: {contact["name"]}")
 
-  id = input("\n INFORME O ID DO CONTATO QUE DESEJA ALTERAR: ")
+  try:
+    id = int(input("\n INFORME O ID DO CONTATO QUE DESEJA ALTERAR: "))
 
-  index = int(id) - 1
+    index = id - 1
 
-  name = input("\n  NOME: ")
+  except Exception:
+    cleanTerminal.execute()
+    print(" DIGITE UM NÚMERO PARA ACESSAR O MENU\n")
 
-  if name:
-    contacts[index]["name"] = name.upper()
+  else:
+    name = input("\n  NOME: ")
 
-  phone = input("  TELEFONE: ")
+    if name:
+      contacts[index]["name"] = name.upper()
 
-  if phone:
-    contacts[index]["phone"] = phone
+    phone = input("  TELEFONE: ")
 
-  email = input("  EMAIL: ")
+    if phone:
+      contacts[index]["phone"] = phone
 
-  if email:
-    contacts[index]["email"] = email.upper()
+    email = input("  EMAIL: ")
 
-  cleanTerminal.execute()
+    if email:
+      contacts[index]["email"] = email.upper()
 
-  print(" CONTATO ATUALIZADO COM SUCESSO\n")
+    cleanTerminal.execute()
+
+    print(" CONTATO ATUALIZADO COM SUCESSO\n")
 
   return

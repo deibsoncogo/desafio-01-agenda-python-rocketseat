@@ -3,24 +3,29 @@ import cleanTerminal
 def execute(contacts):
   print("\n INFORME OS DADOS DO CONTATO:")
 
-  name = input("  NOME: ")
-  phone = int(input("  TELEFONE: "))
-  email = input("  EMAIL: ")
+  try:
+    name = input("  NOME: ")
+    phone = int(input("  TELEFONE: "))
+    email = input("  EMAIL: ")
 
-  favorite = input("\n  PRESSIONE 1 PARA FAVORITAR ELE: ")
-  isFavorite = True if favorite == "1" else False
+    favorite = input("\n  PRESSIONE 1 PARA FAVORITAR ELE: ")
+    isFavorite = True if favorite == "1" else False
+  except Exception:
+    cleanTerminal.execute()
+    print(" VALOR DIGITADO INVÁLIDO, TENTE NOVAMENTE\n")
 
-  contact = {
-    "name": name.upper(),
-    "phone": phone,
-    "email": email.upper(),
-    "isFavorite": isFavorite
-  }
+  else:
+    contact = {
+      "name": name.upper(),
+      "phone": phone,
+      "email": email.upper(),
+      "isFavorite": isFavorite
+    }
 
-  contacts.append(contact)
+    contacts.append(contact)
 
-  cleanTerminal.execute()
+    cleanTerminal.execute()
 
-  print(" CONTATO ADICIONADO COM SUCESSO\n")
+    print(" CONTATO ADICIONADO COM SUCESSO\n")
 
   return

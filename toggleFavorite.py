@@ -3,15 +3,21 @@ import cleanTerminal, findContacts
 def execute(contacts):
   findContacts.execute(contacts)
 
-  id = input(" INFORME O ID DO CONTATO QUE DESEJA ALTERAR: ")
+  try:
+    id = input(" INFORME O ID DO CONTATO QUE DESEJA ALTERAR: ")
 
-  index = int(id) - 1
+  except Exception:
+    cleanTerminal.execute()
+    print(" DIGITE UM NÚMERO PARA ACESSAR O MENU\n")
 
-  if contacts[index]["isFavorite"]:
-    contacts[index]["isFavorite"] = False
   else:
-    contacts[index]["isFavorite"] = True
+    index = int(id) - 1
 
-  cleanTerminal.execute()
+    if contacts[index]["isFavorite"]:
+      contacts[index]["isFavorite"] = False
+    else:
+      contacts[index]["isFavorite"] = True
 
-  print(" CONTATO ATUALIZADO COM SUCESSO\n")
+    cleanTerminal.execute()
+
+    print(" CONTATO ATUALIZADO COM SUCESSO\n")

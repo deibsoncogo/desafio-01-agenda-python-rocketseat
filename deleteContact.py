@@ -6,21 +6,26 @@ def execute(contacts):
   for index, contact in enumerate(contacts, start=1):
     print(f"  {index}. NOME: {contact["name"]}")
 
-  id = input("\n INFORME O ID DO CONTATO QUE DESEJA EXCLUIR: ")
+  try:
+    id = int(input("\n INFORME O ID DO CONTATO QUE DESEJA EXCLUIR: "))
 
-  index = int(id) - 1
-
-  isDeleted = input(f"\n  PRESSIONE 1 PARA CANCELAR A EXCLUSÃO DE {contacts[index]["name"]}: ")
-
-  if isDeleted == "1":
+    index = id - 1
+  except Exception:
     cleanTerminal.execute()
-    print(" EXCLUSÃO DO CONTATO CANCELADO\n")
-    return
+    print(" DIGITE UM NÚMERO PARA ESCOLHER UM CONTATO\n")
 
-  contacts.remove(contacts[index])
+  else:
+    isDeleted = input(f"\n  PRESSIONE 1 PARA CANCELAR A EXCLUSÃO DE {contacts[index]["name"]}: ")
 
-  cleanTerminal.execute()
+    if isDeleted == "1":
+      cleanTerminal.execute()
+      print(" EXCLUSÃO DO CONTATO CANCELADO\n")
+      return
 
-  print(" CONTATO EXCLUÍDO COM SUCESSO\n")
+    contacts.remove(contacts[index])
+
+    cleanTerminal.execute()
+
+    print(" CONTATO EXCLUÍDO COM SUCESSO\n")
 
   return

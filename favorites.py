@@ -18,12 +18,18 @@ def execute(contacts):
     print("  1. ATRIBUIR OU REMOVER O FAVORITISMO")
     print("  2. PARA VOLTAR AO MENU ANTERIOR")
 
-    option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
+    try:
+      option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
 
-    if option == 1:
-      toggleFavorite.execute(contacts)
-    elif option == 2:
+    except Exception:
       cleanTerminal.execute()
-      break
+      print(" DIGITE UM NÚMERO PARA ACESSAR O MENU\n")
+
+    else:
+      if option == 1:
+        toggleFavorite.execute(contacts)
+      elif option == 2:
+        cleanTerminal.execute()
+        break
 
   return

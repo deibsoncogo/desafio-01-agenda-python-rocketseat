@@ -13,18 +13,24 @@ while True:
   print("  5. FAVORITOS")
   print("  6. SAIR")
 
-  option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
+  try:
+    option = int(input("\n  ESCOLHA UMA OPÇÃO: "))
 
-  if option == 1:
-    createContact.execute(contacts)
-  elif option == 2:
-    findContacts.execute(contacts)
-  elif option == 3:
-    editContact.execute(contacts)
-  elif option == 4:
-    deleteContact.execute(contacts)
-  elif option == 5:
-    favorites.execute(contacts)
-  elif option == 6:
-    print("\n  APLICAÇÃO ENCERRADA")
-    break
+  except Exception:
+    cleanTerminal.execute()
+    print(" DIGITE UM NÚMERO PARA ACESSAR O MENU\n")
+
+  else:
+    if option == 1:
+      createContact.execute(contacts)
+    elif option == 2:
+      findContacts.execute(contacts)
+    elif option == 3:
+      editContact.execute(contacts)
+    elif option == 4:
+      deleteContact.execute(contacts)
+    elif option == 5:
+      favorites.execute(contacts)
+    elif option == 6:
+      print("\n  APLICAÇÃO ENCERRADA")
+      break
